@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Information } from '../services/information';
 import { Player } from '../services/player.enum';
+import { TwitchService } from '../services/twitch.service';
 import { environment } from '../../environments/environment';
 import * as moment from 'moment';
 import io from 'socket.io-client';
@@ -13,7 +14,25 @@ import { Socket } from 'net';
 })
 
 export class StreamCMP {
-  constructor() { }
+  constructor(private twitchService: TwitchService) {
+	  twitchService.messages.subscribe(msg => {
+		  console.log("Response from server: " + msg);
+	  });
+  }
+
+  private request = {
+	  type: 'LISTEN',
+	  nonce: 'test-jhobz',
+	  data: {
+		  topics: ['whispers.59634801'],
+		  auth_token: '4nhr83t20ihn4vto0sx3aryo6q0i9x'
+	  }
+  }
+
+  requestConnection() {
+	  console.log('requesting connection from client');
+	  this.twitchService.messages.next(this.request);
+  }
 
   ngOnInit(){
     this.socket.on('data', function(data: Information){

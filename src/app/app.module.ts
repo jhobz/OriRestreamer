@@ -14,6 +14,9 @@ import { StatsCMP } from './stats/stats.cmp';
 import { CreditsCMP } from './credits/credits.cmp';
 import { IntermissionCMP } from './intermission/intermission.cmp';
 
+import { WebSocketService } from './services/websocket.service';
+import { TwitchService } from './services/twitch.service';
+
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardCMP },
   { path: 'stream', component: StreamCMP },
@@ -41,9 +44,13 @@ const appRoutes: Routes = [
     IntermissionCMP
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, { useHash: true })
+  ],
+  providers: [
+	  WebSocketService,
+	  TwitchService
   ],
   bootstrap: [AppComponent]
 })

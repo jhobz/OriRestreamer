@@ -117,6 +117,15 @@ export class ControlsCMP {
       case "celeste":
         this._vm.groupName = "Celeste";
         break;
+      case "odyssey":
+        this._vm.groupName = "Super Mario Odyssey";
+        break;
+      case "ori":
+        this._vm.groupName = "Ori and the Blind Forest";
+        break;
+      case "plague":
+        this._vm.groupName = "Shovel Knight: Plague of Shadows";
+        break;
     }
 
     this._vm.background = background;
@@ -421,8 +430,44 @@ public set seed(seed: string){
         "endColumn": "J3"
     },
     {
-        "name": "MadbossBlinds",
+        "name": "Midboss2",
         "preferredName": "Midboss",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "TonesBalones",
+        "preferredName": "Tones",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "theJKB",
+        "preferredName": "JKB",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "ogNdrahciR",
+        "preferredName": "Richard",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "SmashyLe",
+        "preferredName": "Smashy",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "MooMooAkai",
+        "preferredName": "MooMoo",
+        "startColumn": "B4",
+        "endColumn": "B4"
+    },
+    {
+        "name": "MunchaKoopas",
+        "preferredName": "Muncha",
         "startColumn": "B4",
         "endColumn": "B4"
     }

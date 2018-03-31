@@ -1,5 +1,5 @@
 <!-- TODO: Wire the background image back up to the controls page again -->
-<div class="container" [ngStyle]="{'background-image': 'url(../../assets/Trop/tropbgstream.png)'}">
+<div class="container" [ngStyle]="{'background-image': 'url(../../assets/' + vm.background.charAt(0).toUpperCase() + vm.background.slice(1) + '/' + vm.background + 'bgstream.png)'}">
     <div class="topbar">
     	<div class="name-cycle p1">
         	<div class="name-twitch text">

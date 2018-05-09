@@ -129,10 +129,19 @@ export class ControlsCMP {
 			case 'trop':
 				this._vm.groupName = 'Donkey Kong Country: Tropical Freeze';
 				break;
+			case 'kh2':
+				this._vm.groupName = 'Kingdom Hearts II Final Mix HD';
+				break;
+			case 'crashnst':
+				this._vm.groupName = 'Crash Bandicoot: N. Sane Trilogy';
+				break;
+			case 'alttp':
+				this._vm.groupName = 'A Link to the Past Randomizer';
+				break;
 		}
 
 		this._vm.background = background;
-		this._vm.matchType = this._vm.groupName + ' - Any%';
+		this._vm.matchType = this._vm.groupName + ' - Standard, Randomized Swords';
 	}
 
 	updateInfo() {
@@ -478,6 +487,54 @@ export class ControlsCMP {
 		{
 			'name': 'michael_goldfish',
 			'preferredName': 'Goldfish',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'TehRizzle',
+			'preferredName': 'Rizz',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Bl00dyBizkitz',
+			'preferredName': 'Bl00dy / BB',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'CameronVengenz',
+			'preferredName': 'Cameron',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Roach788',
+			'preferredName': 'Roach',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Sigmasin',
+			'preferredName': 'Sigma',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Phant_TV',
+			'preferredName': 'Phant',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Andy',
+			'preferredName': 'Andy',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'ChristosOwen',
+			'preferredName': 'ChristosOwen',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
 		}

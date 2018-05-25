@@ -537,6 +537,18 @@ export class ControlsCMP {
 			'preferredName': 'ChristosOwen',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
+		},
+		{
+			'name': 'NotSoNewby',
+			'preferredName': 'Newby',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Ghoul02',
+			'preferredName': 'Ghoul',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
 		}
 	];
 }

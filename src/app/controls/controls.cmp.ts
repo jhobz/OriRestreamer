@@ -129,6 +129,9 @@ export class ControlsCMP {
 			case 'trop':
 				this._vm.groupName = 'Donkey Kong Country: Tropical Freeze';
 				break;
+			case 'kh1':
+				this._vm.groupName = 'Kingdom Hearts Final Mix HD';
+				break;
 			case 'kh2':
 				this._vm.groupName = 'Kingdom Hearts II Final Mix HD';
 				break;
@@ -138,10 +141,13 @@ export class ControlsCMP {
 			case 'alttp':
 				this._vm.groupName = 'A Link to the Past Randomizer';
 				break;
+			case 'sonicg':
+				this._vm.groupName = 'Sonic Generations';
+				break;
 		}
 
 		this._vm.background = background;
-		this._vm.matchType = this._vm.groupName + ' - Standard, Randomized Swords';
+		this._vm.matchType = this._vm.groupName + ' - Any%';
 	}
 
 	updateInfo() {
@@ -547,6 +553,30 @@ export class ControlsCMP {
 		{
 			'name': 'Ghoul02',
 			'preferredName': 'Ghoul',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Zetris',
+			'preferredName': 'Zetris',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'RebelWatt',
+			'preferredName': 'Rebel',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Frokenok',
+			'preferredName': 'Frokenok',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'TheBlueMania',
+			'preferredName': 'BlueMania',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
 		}

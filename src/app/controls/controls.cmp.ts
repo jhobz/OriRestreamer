@@ -121,7 +121,7 @@ export class ControlsCMP {
 				this._vm.groupName = 'Super Mario Odyssey';
 				break;
 			case 'ori':
-				this._vm.groupName = 'Ori and the Blind Forest';
+				this._vm.groupName = 'Ori DE Randomizer';
 				break;
 			case 'plague':
 				this._vm.groupName = 'Shovel Knight: Plague of Shadows';
@@ -144,10 +144,13 @@ export class ControlsCMP {
 			case 'sonicg':
 				this._vm.groupName = 'Sonic Generations';
 				break;
+			case 'smg':
+				this._vm.groupName = 'Super Mario Galaxy';
+				break;
 		}
 
 		this._vm.background = background;
-		this._vm.matchType = this._vm.groupName + ' - Any%';
+		this._vm.matchType = this._vm.groupName + ' - Standard Shards';
 	}
 
 	updateInfo() {
@@ -577,6 +580,54 @@ export class ControlsCMP {
 		{
 			'name': 'TheBlueMania',
 			'preferredName': 'BlueMania',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Terra21',
+			'preferredName': 'Terra',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'TheRooseIsLoose89',
+			'preferredName': 'Roose',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'TGH_sr',
+			'preferredName': 'TGH',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'yp__',
+			'preferredName': 'yp',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Spikevegeta',
+			'preferredName': 'Spike',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'JHobz296',
+			'preferredName': 'JHobz',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Grimelios',
+			'preferredName': 'Grimelios',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'MeldonTaragon',
+			'preferredName': 'Meldon',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
 		}

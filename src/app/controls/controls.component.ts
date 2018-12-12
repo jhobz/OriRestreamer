@@ -1,50 +1,56 @@
-import { Component, Input, transition } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { timer } from 'rxjs/observable/timer';
+import { Subscription } from 'rxjs/Subscription';
 import { Information } from '../services/information';
 import { environment } from '../../environments/environment';
 import * as moment from 'moment';
 import * as $ from 'jquery';
 import io from 'socket.io-client';
-import { retry } from 'rxjs/operators/retry';
 
 @Component({
 	templateUrl: './controls.html',
 	styleUrls: ['./controls.css']
 })
-export class ControlsCMP {
+export class ControlsComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {
 		this.seed = this.urlSeed;
 		this.socket.on('data', function(data: Information) {
-			if (data.seed !== this.seed)
+			if (data.seed !== this.seed) {
 				return;
+			}
 
-			if (this.updating)
+			if (this.updating) {
 				return;
+			}
 
 			this.vm = data;
 		}.bind(this));
 
 		this.socket.on('timer', function(start: boolean, data: Information) {
-			if (data.seed !== this.seed)
+			if (data.seed !== this.seed) {
 				return;
+			}
 
 			if (!start) {
 				clearInterval(this.player1Interval);
 				clearInterval(this.player2Interval);
 				this.ticks1 = '0:00:00';
 				this.ticks2 = '0:00:00';
-			}
-			else {
-				if (this.timerStarted)
+			} else {
+				if (this.timerStarted) {
 					return;
+				}
 
 				this.timerStarted = true;
-				let seconds = new Date().getTime(), last = seconds;
+				const seconds = new Date().getTime();
+				let last = seconds;
 				this.player1Interval = setInterval(function() {
-					if (this.timer1Paused)
+					if (this.timer1Paused) {
 						return;
+					}
 
 					const now = new Date().getTime();
 					last = now;
@@ -52,8 +58,9 @@ export class ControlsCMP {
 				}.bind(this), 100);
 
 				this.player2Interval = setInterval(function() {
-					if (this.timer2Paused)
+					if (this.timer2Paused) {
 						return;
+					}
 
 					const now = new Date().getTime();
 					last = now;
@@ -63,12 +70,11 @@ export class ControlsCMP {
 		}.bind(this));
 
 		this.socket.on('timer1', function(finished: boolean, data: Information) {
-			if (data.seed !== this.seed)
+			if (data.seed !== this.seed) {
 				return;
-
-			if (!finished) {
 			}
-			else {
+
+			if (finished) {
 				this._vm.player1_finishTime = this.ticks1;
 				this.socket.emit('data', this.vm);
 				clearInterval(this.player1Interval);
@@ -76,19 +82,17 @@ export class ControlsCMP {
 		}.bind(this));
 
 		this.socket.on('timer2', function(finished: boolean, data: Information) {
-			if (data.seed !== this.seed)
+			if (data.seed !== this.seed) {
 				return;
-
-			if (!finished) {
 			}
-			else {
+
+			if (finished) {
 				this._vm.player2_finishTime = this.ticks2;
 				this.socket.emit('data', this.vm);
 				clearInterval(this.player2Interval);
 			}
 		}.bind(this));
 
-		console.log(this.players);
 	}
 
 	playersList: any;
@@ -105,8 +109,8 @@ export class ControlsCMP {
 	ticks2 = '0:00:00';
 	player1Interval: any;
 	player2Interval: any;
-	public nameTimer: Observable<number> = Observable.timer(0, 1000);
-	public timer2: Observable<number> = Observable.timer(0, 1000);
+	public nameTimer: Observable<number> = timer(0, 1000);
+	public timer2: Observable<number> = timer(0, 1000);
 	private $timer2: Subscription;
 	socket: any = io.connect(environment.socketPath);
 	isLinked = false;
@@ -117,7 +121,7 @@ export class ControlsCMP {
 			case 'celeste':
 				this._vm.groupName = 'Celeste';
 				break;
-			case 'odyssey':
+			case 'smo':
 				this._vm.groupName = 'Super Mario Odyssey';
 				break;
 			case 'ori':
@@ -147,10 +151,40 @@ export class ControlsCMP {
 			case 'smg':
 				this._vm.groupName = 'Super Mario Galaxy';
 				break;
+			case 'rayman':
+				this._vm.groupName = 'Rayman Legends';
+				break;
+			case 'crash1nst':
+				this._vm.groupName = 'Crash Bandicoot: N. Sane Trilogy';
+				break;
+			case 'sms':
+				this._vm.groupName = 'Super Mario Sunshine';
+				break;
+			case 'ootrando':
+				this._vm.groupName = 'TLoZ: OoT - Randomizer';
+				break;
+			case 'uya':
+				this._vm.groupName = 'Ratchet & Clank: Up Your Arsenal';
+				break;
+			case 'bk':
+				this._vm.groupName = 'Banjo-Kazooie';
+				break;
+			case 'sa2b':
+				this._vm.groupName = 'Sonic Adventure 2: Battle';
+				break;
+			case 'mmx':
+				this._vm.groupName = 'Mega Man X';
+				break;
+			case 'sm64':
+				this._vm.groupName = 'Super Mario 64';
+				break;
+			case 'srt':
+				this._vm.groupName = 'Spyro Reignited Trilogy';
+				break;
 		}
 
 		this._vm.background = background;
-		this._vm.matchType = this._vm.groupName + ' - Standard Shards';
+		this._vm.matchType = this._vm.groupName + ' - Crash 2 100%';
 	}
 
 	updateInfo() {
@@ -158,8 +192,9 @@ export class ControlsCMP {
 	}
 
 	linkTracker() {
-		if (this.isLinked)
+		if (this.isLinked) {
 			return;
+		}
 
 		this.isLinked = true;
 
@@ -168,7 +203,6 @@ export class ControlsCMP {
 				url: 'https://www.meldontaragon.org/ori/tracker/allskills/server.php?match=' + this._vm.seed,
 				dataType: 'json',
 				error: function(response) {
-					console.log(response);
 				},
 				success: function(response: any) {
 					this._vm.tracker = JSON.parse(JSON.stringify(response));
@@ -193,16 +227,17 @@ export class ControlsCMP {
 
 			const ticks1Array = this.ticks1.split(':');
 
-			const newTicksSecondsHours = (parseInt(ticks1Array[0]) * 3600);
-			const newTicksSecondsMinutes = (parseInt(ticks1Array[1]) * 60);
-			const newTicksSeconds = parseInt(ticks1Array[2]) + newTicksSecondsHours + newTicksSecondsMinutes;
+			const newTicksSecondsHours = (parseInt(ticks1Array[0], 10) * 3600);
+			const newTicksSecondsMinutes = (parseInt(ticks1Array[1], 10) * 60);
+			const newTicksSeconds = parseInt(ticks1Array[2], 10) + newTicksSecondsHours + newTicksSecondsMinutes;
 			const newP1TimerTicks = moment().startOf('day').seconds(newTicksSeconds).format('H:mm:ss');
 
 			p1seconds = new Date().getTime() - (newTicksSeconds * 1000);
 
 			this.player1Interval = setInterval(function() {
-				if (this.timer1Paused)
+				if (this.timer1Paused) {
 					return;
+				}
 
 				const now = new Date().getTime();
 
@@ -217,16 +252,17 @@ export class ControlsCMP {
 
 			const ticks2Array = this.ticks2.split(':');
 
-			const newTicks2SecondsHours = (parseInt(ticks2Array[0]) * 3600);
-			const newTicks2SecondsMinutes = (parseInt(ticks2Array[1]) * 60);
-			const newTicks2Seconds = parseInt(ticks2Array[2]) + newTicks2SecondsHours + newTicks2SecondsMinutes;
+			const newTicks2SecondsHours = (parseInt(ticks2Array[0], 10) * 3600);
+			const newTicks2SecondsMinutes = (parseInt(ticks2Array[1], 10) * 60);
+			const newTicks2Seconds = parseInt(ticks2Array[2], 10) + newTicks2SecondsHours + newTicks2SecondsMinutes;
 			const newP2TimerTicks = moment().startOf('day').seconds(newTicks2Seconds).format('H:mm:ss');
 
 			p2seconds = new Date().getTime() - (newTicks2Seconds * 1000);
 
 			this.player2Interval = setInterval(function() {
-				if (this.timer2Paused)
+				if (this.timer2Paused) {
 					return;
+				}
 
 				const now = new Date().getTime();
 
@@ -236,18 +272,18 @@ export class ControlsCMP {
 		}
 
 		if (changedTimer) {
-			console.log(p2seconds);
-			console.log(p1seconds);
 			if (p2seconds > p1seconds) {
-				if (p1seconds !== undefined)
+				if (p1seconds !== undefined) {
 					this.socket.emit('timer-set', p1seconds, this.vm);
-				else
+				} else {
 					this.socket.emit('timer-set', p2seconds, this.vm);
+				}
 			} else {
-				if (p2seconds !== undefined)
+				if (p2seconds !== undefined) {
 					this.socket.emit('timer-set', p2seconds, this.vm);
-				else
+				} else {
 					this.socket.emit('timer-set', p1seconds, this.vm);
+				}
 			}
 			changedTimer = false;
 		}
@@ -269,19 +305,22 @@ export class ControlsCMP {
 	}
 
 	player1Paused() {
-		if (this.timerStarted)
+		if (this.timerStarted) {
 			this.timer1Paused = true;
+		}
 
 	}
 
 	player2Paused() {
-		if (this.timerStarted)
+		if (this.timerStarted) {
 			this.timer2Paused = true;
+		}
 	}
 
 	reset() {
-		if (!confirm('Reset?'))
+		if (!confirm('Reset?')) {
 			return;
+		}
 
 		this.timerStarted = false;
 		this.timer1Paused = false;
@@ -318,14 +357,14 @@ export class ControlsCMP {
 
 	setP1Name(event: any) {
 		const runner = jQuery.grep(this.players, function(n: any, i) {
-			return n.name == event;
+			return n.name === event;
 		})[0];
 		this.vm.player1 = runner.preferredName;
 	}
 
 	setP2Name(event: any) {
 		const runner = jQuery.grep(this.players, function(n: any, i) {
-			return n.name == event;
+			return n.name === event;
 		})[0];
 		this.vm.player2 = runner.preferredName;
 	}
@@ -429,7 +468,7 @@ export class ControlsCMP {
 
 
 	public get p1_audio(): boolean {
-		return this._vm.currentAudioOnPlayer == 1;
+		return this._vm.currentAudioOnPlayer === 1;
 	}
 
 	public set p1_audio(audioSelected: boolean) {
@@ -437,7 +476,7 @@ export class ControlsCMP {
 	}
 
 	public get p2_audio(): boolean {
-		return this._vm.currentAudioOnPlayer == 2;
+		return this._vm.currentAudioOnPlayer === 2;
 	}
 
 	public set p2_audio(audioSelected: boolean) {
@@ -628,6 +667,162 @@ export class ControlsCMP {
 		{
 			'name': 'MeldonTaragon',
 			'preferredName': 'Meldon',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Glackum',
+			'preferredName': 'Glackum',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'thextera_',
+			'preferredName': 'Thextera',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'DepCow',
+			'preferredName': 'Dep',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'CaneOfPacci',
+			'preferredName': 'Cane',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'SniperKing19',
+			'preferredName': 'SniperKing',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'anatomyz_2',
+			'preferredName': 'atz',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Glitchymon',
+			'preferredName': 'Glitchymon',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'ninjaratchet',
+			'preferredName': 'Ninjaratchet',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'CapnWiffle',
+			'preferredName': 'Wiffle',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Bayleef',
+			'preferredName': 'Bayleef',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Timpani',
+			'preferredName': 'Timpani',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Dickhiskhan',
+			'preferredName': 'Dickhiskhan',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Hagginater',
+			'preferredName': 'Hagginater',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Talon2461',
+			'preferredName': 'Talon',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'a_moustache',
+			'preferredName': 'moustache',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Walrus_Prime',
+			'preferredName': 'Walrus',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Tokyo90',
+			'preferredName': 'Tokyo',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'BlueBob',
+			'preferredName': 'Bob',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'HeisenburgerTV',
+			'preferredName': 'Heisenburger',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'WoodenBarrel',
+			'preferredName': 'Barrel',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Sonicshadowsilver2',
+			'preferredName': 'Sonic',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'usedpizza',
+			'preferredName': 'dp',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'knox',
+			'preferredName': 'knox',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'ChrisLBC',
+			'preferredName': 'Chris',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'BubblesDelFuego',
+			'preferredName': 'Bubbles',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'BluntsMoses',
+			'preferredName': 'Blunts',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
 		}

@@ -149,7 +149,8 @@
 	height: 470.625px; /* stream_height - (racefeed_height + topbar_height) = 1080 - (534.375 + 75) = 470.625 */
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	justify-content: center; /* Change this back if 1st/2nd place trackers get re-added */
 	align-items: flex-end;
 }
 
@@ -204,10 +205,10 @@
 }
 
 .info {
-	flex-grow: 1;
+	/* flex-grow: 1; */
 	margin-bottom: 45px;
-	min-width: 400px;
-	max-width: 660px;
+	min-width: 660px;
+	max-width: 800px;
 	text-align: center;
 	font-size: 28px;
     color: white;
@@ -216,6 +217,19 @@
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
+}
+
+.info.sd {
+	height: 50px;
+	margin-bottom: 23px;
+	display: flex;
+	align-items: center;
+}
+
+.info.sd > div:first-child {
+	flex-grow: 1;
+	text-align: left;
+	margin-right: 35px;
 }
 
 .mapstone-p1 {

@@ -1,4 +1,3 @@
-<!-- TODO: Wire the background image back up to the controls page again -->
 <div class="container" [ngStyle]="{'background-image': 'url(../../assets/' + vm.background + '/' + vm.background + 'bgstream.png)'}">
     <div class="topbar">
     	<div class="name-cycle p1">
@@ -36,18 +35,18 @@
     </div>
 
     <div class="matchinfo">
-        <div class="tracker p1">
+        <!-- <div class="tracker p1">
             <img [ngClass]="{ 'on' : p1First }" style="--r: 65.52px" src="../../assets/1stplace70percent.png">
             <img [ngClass]="{ 'on' : p2First }" style="--r: 62px" src="../../assets/2ndplace70percent.png">
-        </div>
-        <div class="info">
+        </div> -->
+        <div [ngClass]="{ 'info': true, 'sd': sd }">
             <div>{{ vm.matchType }}</div>
             <img src="../../assets/commentary.png" />
 			<div>{{ vm.commentators }}</div>
         </div>
-        <div class="tracker p2">
+        <!-- <div class="tracker p2">
             <img [ngClass]="{ 'on' : p2First }" style="--r: 65.52px" src="../../assets/1stplace70percent.png">
             <img [ngClass]="{ 'on' : p1First }" style="--r: 62px" src="../../assets/2ndplace70percent.png">
-        </div>
+        </div> -->
     </div>
  </div>

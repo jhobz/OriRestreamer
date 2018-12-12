@@ -4,50 +4,50 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { DashboardCMP } from './dashboard/dashboard.cmp';
-import { StreamCMP } from './stream/stream.cmp';
-import { ControlsCMP } from './controls/controls.cmp';
-import { GroupsCMP } from './groups/groups.cmp';
-import { SplashCMP } from './splash/splash.cmp';
-import { BracketCMP } from './bracket/bracket.cmp';
-import { StatsCMP } from './stats/stats.cmp';
-import { CreditsCMP } from './credits/credits.cmp';
-import { IntermissionCMP } from './intermission/intermission.cmp';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { StreamComponent } from './stream/stream.component';
+import { ControlsComponent } from './controls/controls.component';
+import { GroupsComponent } from './groups/groups.component';
+import { SplashComponent } from './splash/splash.component';
+import { BracketComponent } from './bracket/bracket.component';
+import { StatsComponent } from './stats/stats.component';
+import { CreditsComponent } from './credits/credits.component';
+import { IntermissionComponent } from './intermission/intermission.component';
 
 const appRoutes: Routes = [
-  { path: 'dashboard', component: DashboardCMP },
-  { path: 'stream', component: StreamCMP },
-  { path: 'controls', component: ControlsCMP, },
-  { path: 'groups', component: GroupsCMP },
-  { path: 'splash', component: SplashCMP },
-  { path: 'bracket', component: BracketCMP },
-  { path: 'stats', component: StatsCMP },
-  { path: 'credits', component: CreditsCMP },
-  { path: 'intermission', component: IntermissionCMP },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+	{ path: 'dashboard', component: DashboardComponent },
+	{ path: 'stream', component: StreamComponent },
+	{ path: 'controls', component: ControlsComponent, },
+	{ path: 'groups', component: GroupsComponent },
+	{ path: 'splash', component: SplashComponent },
+	{ path: 'bracket', component: BracketComponent },
+	{ path: 'stats', component: StatsComponent },
+	{ path: 'credits', component: CreditsComponent },
+	{ path: 'intermission', component: IntermissionComponent },
+	{ path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ControlsCMP,
-    DashboardCMP,
-    StreamCMP,
-    GroupsCMP,
-    SplashCMP,
-    BracketCMP,
-    StatsCMP,
-    CreditsCMP,
-    IntermissionCMP
-  ],
-  imports: [
-    BrowserModule, 
-    FormsModule,
-    RouterModule.forRoot(appRoutes, { useHash: true })
-  ],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ControlsComponent,
+		DashboardComponent,
+		StreamComponent,
+		GroupsComponent,
+		SplashComponent,
+		BracketComponent,
+		StatsComponent,
+		CreditsComponent,
+		IntermissionComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		RouterModule.forRoot(appRoutes, { useHash: true })
+	],
+	bootstrap: [AppComponent]
 })
 
 export class AppModule {
-  constructor(){}
- }
+	constructor() {}
+}

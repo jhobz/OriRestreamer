@@ -873,6 +873,12 @@ export class ControlsComponent implements OnInit {
 			'preferredName': 'Swift',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
+		},
+		{
+			'name': 'Murcaz',
+			'preferredName': 'Murcaz',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
 		}
 	];
 }

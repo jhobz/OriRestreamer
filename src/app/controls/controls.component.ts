@@ -181,10 +181,16 @@ export class ControlsComponent implements OnInit {
 			case 'srt':
 				this._vm.groupName = 'Spyro Reignited Trilogy';
 				break;
+			case 'plge':
+				this._vm.groupName = 'Pokémon: Let\'s Go, Eevee!';
+				break;
+			case 'kh3':
+				this._vm.groupName = 'Kingdom Hearts 3';
+				break;
 		}
 
 		this._vm.background = background;
-		this._vm.matchType = this._vm.groupName + ' - Crash 2 100%';
+		this._vm.matchType = this._vm.groupName + ' - Any%';
 	}
 
 	updateInfo() {
@@ -823,6 +829,48 @@ export class ControlsComponent implements OnInit {
 		{
 			'name': 'BluntsMoses',
 			'preferredName': 'Blunts',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Ouro',
+			'preferredName': 'Ouro',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Keizaron',
+			'preferredName': 'Keizaron',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'kerbis54',
+			'preferredName': 'Kerbis',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'MooseSR',
+			'preferredName': 'Moose',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Psyched_sr',
+			'preferredName': 'Psyched',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'Ninten866',
+			'preferredName': 'Ninten',
+			'startColumn': 'B4',
+			'endColumn': 'B4'
+		},
+		{
+			'name': 'SwiftShadow',
+			'preferredName': 'Swift',
 			'startColumn': 'B4',
 			'endColumn': 'B4'
 		}

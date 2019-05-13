@@ -6,8 +6,8 @@
   "typings": "./app/typings.d.ts",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
-	"start-dev": "run-p start dev",
+	"start": "run-p server dev",
+    "server": "node server.js",
     "dev": "ng serve --port 4201",
     "build": "ng build --prod",
     "postinstall": "node ./src/scripts/fixAngularCrypto.js"

@@ -43,38 +43,6 @@ io.on('connection', function(client) {
     client.on('timer-set', function(ticks, data){
         io.emit('timer-set', ticks, data);
     });
-
-    client.on('p1Stats', function(data, text){
-        io.emit('p1Stats', data, text);
-    });
-
-    client.on('p2Stats', function(data, text){
-        io.emit('p2Stats', data, text);
-    });
-
-    client.on('freeTextStats', function(data, text){
-        io.emit('freeTextStats', data, text);
-    });
-
-    client.on('swissPlayerSelected', function(data, playerId){
-        io.emit('swissPlayerSelected', data, playerId);
-    });
-
-    client.on('swissTeamSelected', function(data, teamId){
-        io.emit('swissTeamSelected', data, teamId);
-    });
-
-    client.on('resetSwiss', function(data){
-        io.emit('resetSwiss', data);
-    });
-
-    client.on('undoSwissSingles', function(data){
-        io.emit('undoSwissSingles', data);
-    });
-
-    client.on('undoSwissDoubles', function(data){
-        io.emit('undoSwissDoubles', data);
-    });
 });
 
 server.listen(port);

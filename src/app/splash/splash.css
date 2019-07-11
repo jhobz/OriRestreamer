@@ -1,24 +1,21 @@
 @font-face{
-    font-family: "Gara";
-    src: url('../../assets/belleza-regular.ttf') format("truetype")
+    font-family: "Segoe";
+    src: url('../../assets/segoeuibold.ttf') format("truetype")
 }
 
 .container {
-    font-family: "Gara";
+    font-family: "Segoe";
     font-size: 24px;
     color: white;
     width: 1920px;
 	height: 1080px;
     background-size: 1920px 1080px;
-    background-color: rgba(0,0,0,0.15)
+    background-color: rgba(0,0,0,0.25)
 }
+
 
 div {
     font-size: 80px;
-}
-
-.winner {
-    color: #ffb600;
 }
 
 .matchup {
@@ -31,82 +28,21 @@ div {
 	height: 300px;
 }
 
-.matchup-doubles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 450px;
-}
-
 .matchType {
     position: absolute;
     top: 75px;
-    left: 100px;
+    left: 75px;
     font-size: 100px;
     word-wrap: break-word;
 }
 
-.matchup, .matchup-doubles > div {
+.matchup > div {
     text-align: center;
 }
 
 .logo {
     position: absolute;
-    bottom: -75px;
-    left: 50px;
+    bottom: 75px;
+    left: 33%;
 }
 
-.title {
-    position: absolute;
-    bottom: 100px;
-    left: 500px;
-}
-
-video {
-    background: transparent;
-}
-
-.players {
-    font-size: 54px;
-}
-/* 
-.rotate {
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-	animation-iteration-count: infinite;
-    animation-duration: 30s;
-    animation-direction: alternate;
-}
-
-.rotate-names {
-    animation-name: start-fade;
-}
-
-.rotate-teams {
-	animation-name: fade;
-}
-
-.rotate-container {
-    flex-grow: 1;
-	position: relative;
-}
-
-.rotate-cycle 
-
-@keyframes start-fade {
-	0% { opacity: 0; }
-	25% { opacity: 0; }
-    45% { opacity: 0 }
-    50% { opacity: 1}
-	100% { opacity: 1; }
-}
-
-@keyframes fade {
-	0% { opacity: 1; }
-	25% { opacity: 1; }
-    45% { opacity: 1; }
-    50% { opacity: 0; }
-	100% { opacity: 0; }
-} */

@@ -1,4 +1,4 @@
-<div class="container" [ngStyle]="{'background-image': 'url(../../assets/background-' + vm.background + '.png)'}">
+<div class="container" [ngStyle]="{'background-image': 'url(../../assets/' + vm.background + '/' + vm.background + 'bgstream.png)'}">
     <div class="topbar">
     	<div class="name-cycle p1">
         	<div class="name-twitch text">
@@ -13,7 +13,7 @@
 	        <div class="timer-finish p1 text">
 	            {{ vm.player1_finishTime }}
 	        </div>
-            <span *ngIf="!vm.player1_timerVisible" class="text timer-main"></span>
+            <span *ngIf="!vm.player1_timerVisible" class="text timer-main">{{ ticks }}</span>
 	        <div class="timer-finish p2 text">
 	            {{ vm.player2_finishTime }}
 	        </div>
@@ -29,64 +29,30 @@
 	    </div>
 	</div>
 
-    <div [ngClass]="{ 'winner': vm.soloWinner == 1, 'stream-placeholder': vm.soloWinner != 1 }">
+    <div class="stream-placeholder">
     </div>
-
-    <div [ngClass]="{ 'winner': vm.soloWinner == 2, 'stream-placeholder': vm.soloWinner != 2 }">
+    <div class="stream-placeholder">
     </div>
-
-    <div class="stats-container">
-        <!-- <div class="wrapper"> -->
-            <div class="stat-flyin p1 ui">
-                {{ p1StatsText }}
-            </div>
-        <!-- </div> -->
-        <!-- <div class="wrapper"> -->
-            <div class="stat-flyin p2 ui">
-                {{ p2StatsText }}
-            </div>
-        <!-- </div> -->
-    </div>
-
-    <div *ngIf="vm.bestOf >= 3" class="win-count-container">
-        <div class="win-count-p1">
-            <img *ngIf="vm.bestOf >= 5 && !p1ThirdWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p1ThirdWin" src="../../assets/bo3;5-indicator.png">
-
-            <img *ngIf="vm.bestOf >= 3 && !p1SecondWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p1SecondWin" src="../../assets/bo3;5-indicator.png">
-
-            <img *ngIf="!p1FirstWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p1FirstWin" src="../../assets/bo3;5-indicator.png">
-        </div>
-        <div class="match-type">
-            <span *ngIf="vm.bestOf == 3">Best of 3</span>
-            <span *ngIf="vm.bestOf == 5">Best of 5</span>
-        </div>
-        <div class="win-count-p2">
-            <img *ngIf="!p2FirstWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p2FirstWin" src="../../assets/bo3;5-indicator.png">
-
-            <img *ngIf="vm.bestOf >= 3 && !p2SecondWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p2SecondWin" src="../../assets/bo3;5-indicator.png">
-
-            <img *ngIf="vm.bestOf >= 5 && !p2ThirdWin" src="../../assets/bo3;5-indicatorRing.png">
-            <img *ngIf="p2ThirdWin" src="../../assets/bo3;5-indicator.png">
-        </div>
-    </div>
-
+	
+	<!--
+	<div class="match-numbers">
+		{{ vm.player1_matchNumber }} Testing Match Numbers {{ vm.player2_matchNumber }}
+	</div>
+	-->
+	
     <div class="matchinfo">
-        <div class="tracker p1">
-        </div>
-        <div class="info">
+        <!-- <div class="tracker p1">
+            <img [ngClass]="{ 'on' : p1First }" style="--r: 65.52px" src="../../assets/1stplace70percent.png">
+            <img [ngClass]="{ 'on' : p2First }" style="--r: 62px" src="../../assets/2ndplace70percent.png">
+        </div> -->
+        <div [ngClass]="{ 'info': true, 'sd': sd }">
             <div>{{ vm.matchType }}</div>
-                
-            <div class="commentators">
-                <img src="../../assets/commentary.png" />
-                {{ vm.commentators }}
-            </div>
+            <img src="../../assets/commentary.png" />
+			<div>{{ vm.commentators }}</div>
         </div>
-        <div class="tracker p2">
-        </div>
+        <!-- <div class="tracker p2">
+            <img [ngClass]="{ 'on' : p2First }" style="--r: 65.52px" src="../../assets/1stplace70percent.png">
+            <img [ngClass]="{ 'on' : p1First }" style="--r: 62px" src="../../assets/2ndplace70percent.png">
+        </div> -->
     </div>
  </div>

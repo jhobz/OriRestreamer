@@ -1,0 +1,84 @@
+@font-face{
+    font-family: "Segoe";
+    src: url('../../assets/segoeuibold.ttf') format("truetype")
+}
+
+.container {
+    font-family: "Segoe";
+    font-size: 24px;
+    color: white;
+    width: 1920px;
+	height: 1080px;
+    background-size: 1920px 1080px;
+    background-color: rgba(0,0,0,0.25)
+}
+
+
+div {
+	font-size: 80px;
+}
+
+.matchup {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 100px;
+}
+
+.matchType {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 50px;
+}
+
+.commentary1 {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 50%;
+	bottom: 0;
+	margin: auto;
+	height: 150px;
+}
+
+.commentary2 {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	height: 150px;
+}
+
+.matchup > div {
+    text-align: center;
+	margin-top: 1.5%;
+}
+
+.matchType > div {
+    text-align: center;
+	margin-top: 6.5%;
+	font-size: 50px;
+}
+
+.commentary1 > div {
+    text-align: center;
+	margin-top: 30%;
+}
+.commentary2 > div {
+    text-align: center;
+	margin-top: 30%;
+}
+
+.logo {
+    position: fixed;
+    left: 33%;
+	bottom: 2%;
+}
+

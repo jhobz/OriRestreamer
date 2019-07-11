@@ -4,7 +4,7 @@
     color: white;
     width: 1920px;
     height: 1080px;
-    position: relative;
+	background-color: rgba(0,0,0,0.25)
 }
 
 div {
@@ -14,7 +14,7 @@ div {
 .title {
     position: absolute;
     top: 50px;
-    left: 280px;
+    left: 150px;
     width: 200px;
     text-align: center;
     word-wrap: normal;
@@ -41,8 +41,7 @@ table td {
 	max-width: 500px;
 }
 
-.ui,
-tr > td.ui {
+table > tbody > tr > td:first-child {
 	font-family: "Segoe UI";
 	font-size: 28px;
 	font-weight: bold;
@@ -51,11 +50,12 @@ tr > td.ui {
 
 .seeds > td {
     font-size: 32px;
-    padding-bottom: 90px;
+    padding-left: 100px;
+    padding-bottom: 125px;
     text-align: center;
 }
 
-.stats > td{
+.stats > td {
     font-size: 32px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -63,54 +63,30 @@ tr > td.ui {
 
 .method > td {
     font-size: 32px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .misc > td {
-	font-size: 32px;
-	padding: 10px 25px;
-}
-
-.misc > td.radar {
-	padding: 0;
-	position: relative;
+    font-size: 32px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .healthCells > td {
     font-size: 32px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     padding-left: 25px;
     padding-right: 25px;
-}
-
-ul > li:first-child {
-    color: #fff36a;
 }
 
 .tricks > td {
     font-size: 32px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     padding-left: 25px;
     padding-right: 25px;
-}
-
-.chartName {
-	font-size: 20px;
-	position: absolute;
-	top: 5px;
-}
-
-.chartName.p1 {
-	color: #ff9100;
-	left: 5px;
-}
-
-.chartName.p2 {
-	color: #46cef7;
-	right: 5px;
-}
-
-#statChart {
-	margin: auto;
 }

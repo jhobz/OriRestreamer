@@ -3,7 +3,3 @@ declare var module: NodeModule;
 interface NodeModule {
   id: string;
 }
-
-interface HTMLElement {
-  getContext(id: string);
-}

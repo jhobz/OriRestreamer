@@ -1,22 +1,3 @@
-<div class="container">
-	<header>
-		<video width="400px" src="../../assets/75scale40opacity.webm" loop autoplay style="background:transparent"></video>
-		<div class="title">Randomizer Tournament 2018 Standings</div>
-	</header>
-	<div class="big-container">
-		<div
-			id="fullbracket{{currentDivision.name}}"
-			[ngClass]="{ 'full-bracket': true, 'zoom': zoomBracket }"
-			[style]="setOrigin(currentDivision.name)"
-		>
-			<app-division
-				*ngFor="let division of divisions"
-				[name]="division"
-				[shouldShowHeaders]="shouldShowHeaders"
-				[ngClass]="[ 'division', division ]"
-				[style]="divisionStyles(division)"
-			>
-			</app-division>
-		</div>
-	</div>
+<div>
+    Bracket Here
 </div>
